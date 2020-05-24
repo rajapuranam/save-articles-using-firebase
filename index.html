@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save your Articles</title>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-firestore.js"></script>
+
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+
+    <!-- AOS library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- own css -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mt-4 mb-4">Save your Articles</h1>
+        <div class="content">
+            <form id="add-articles">
+                <div class="form-group">
+                    <label for="titleLabel">Title</label>
+                    <input type="text" name="title" class="form-control" id="titleLabel">
+                </div>
+                <div class="form-group">
+                    <label for="authorLabel">Author</label>
+                    <input type="text" name="author" class="form-control" id="authorLabel">
+                </div>
+                <div class="form-group">
+                    <label for="articleLabel">Article</label>
+                    <textarea rows="4" name="article" class="form-control" id="articleLabel"></textarea>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-outline-primary">Add Article</button>
+                </div>
+            </form>
+        </div>
+
+
+
+
+        <ul id="articles-list"></ul>
+    </div>
+
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        // Initialize Firebase
+        var firebaseConfig = {
+            apiKey: "AIzaSyAZNnoOb2jZ3xq2sLCDkIC-McE7v_YuaeA",
+            authDomain: "articles-31ed3.firebaseapp.com",
+            databaseURL: "https://articles-31ed3.firebaseio.com",
+            projectId: "articles-31ed3",
+            storageBucket: "articles-31ed3.appspot.com",
+            messagingSenderId: "580646284559",
+            appId: "1:580646284559:web:aecb7882963d87af3de27a",
+            measurementId: "G-Z38YQRTF9N"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        db.settings({ timestampsInSnapshots: true }); 
+    </script>
+    <script src="app.js"></script>
+</body>
+
+</html>
